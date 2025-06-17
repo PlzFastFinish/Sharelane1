@@ -54,7 +54,8 @@ public class ZipCodeTest {
         driver.findElement(By.name("password2")).sendKeys("1111");
         driver.findElement(By.cssSelector("[value=Register")).click();
         driver.findElement(By.cssSelector("[class=confirmation_message]"));
-
-        driver.quit();
+        String accessMessage = driver.findElement(By.cssSelector("[class=confirmation_message")).getText();
+        Assert.assertEquals(accessMessage, "Account is created!");
+        //driver.quit();
     }
 }
